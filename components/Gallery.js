@@ -9,7 +9,14 @@ const Gallery = () => {
     '/img/foto 4.jpg',
     '/img/foto 5.jpg',
     '/img/foto 6.jpg',
-    '/img/foto 7.jpg'
+    '/img/foto 7.jpg',
+    'https://res.cloudinary.com/dzlmwg5tk/image/upload/v1646654005/tattoo-artist/foto_7_xtazzz.jpg',
+    'https://res.cloudinary.com/dzlmwg5tk/image/upload/v1646654005/tattoo-artist/bg-2_plvton.jpg',
+    'https://res.cloudinary.com/dzlmwg5tk/image/upload/v1646654004/tattoo-artist/foto_3_bol73t.jpg',
+    'https://res.cloudinary.com/dzlmwg5tk/image/upload/v1646654004/tattoo-artist/foto_1_nmz4zr.jpg',
+    'https://res.cloudinary.com/dzlmwg5tk/image/upload/v1646654004/tattoo-artist/foto_5_qktnk3.jpg',
+    'https://res.cloudinary.com/dzlmwg5tk/image/upload/v1646654004/tattoo-artist/foto_4_nxaeq8.jpg',
+    'https://res.cloudinary.com/dzlmwg5tk/image/upload/v1646654004/tattoo-artist/foto_6_blqyvk.jpg'
     // 'https://www.instagram.com/p/CULgbBILJM0/',
     // 'https://www.instagram.com/p/CT5aufALWzR/',
     // 'https://www.instagram.com/p/CQM-Ka0jDTd/',

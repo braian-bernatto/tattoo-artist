@@ -5,7 +5,7 @@ const nextConfig = {
     domains: [
       'instagram.fasu11-1.fna.fbcdn.net',
       'www.instagram.com',
-      'res.cloudinasry.com'
+      'res.cloudinary.com'
     ]
   }
 }
