@@ -92,16 +92,8 @@
   width: calc(100% + 2px);
 }
 
-.precinta {
-  position: absolute;
-  top: 60px;
-  right: -20px;
+.especial-font {
   font-family: 'Covered By Your Grace', cursive;
-  background-color: var(--red-secondary);
-  transform: rotate(50deg);
-  padding: 2px 40px;
-  clip-path: polygon(0 0, 100% 0, 85% 50%, 100% 100%, 0 100%, 15% 50%);
-  overflow: hidden;
 }
 
 .ribbon-wrapper-2 {

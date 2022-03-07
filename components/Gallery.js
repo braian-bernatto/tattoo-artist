@@ -45,7 +45,7 @@ const Gallery = () => {
             />
 
             <footer className='flex w-full h-16 justify-center items-center text-3xl font-semibold'>
-              <h2>{i + 1}</h2>
+              <h2 className='especial-font'>Foto {i + 1}</h2>
             </footer>
           </div>
         ))}
