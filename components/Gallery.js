@@ -19,8 +19,8 @@ const Gallery = () => {
   return (
     <>
       <div className='flex justify-center items-center gap-5 flex-wrap pt-20 mx-10 relative'>
-        <div class='ribbon-wrapper-2 text-white text-xl'>
-          <div class='ribbon-2'>Galería</div>
+        <div className='ribbon-wrapper-2 text-white text-xl'>
+          <div className='ribbon-2'>Galería</div>
         </div>
         {/* {album.map((picture, i) => (
         <iframe
