@@ -6,7 +6,7 @@ const Hero = () => {
       <span className='flex flex-col justify-center items-center opacity-70'>
         <h1 className='hero-title-main'>Peter Pintos</h1>
         <div className='word-carousel'>
-          <ul class='flip2'>
+          <ul className='flip2'>
             <li className='hero-title-sub'>Artist</li>
             <li className='hero-title-sub'>Tattoo</li>
           </ul>
