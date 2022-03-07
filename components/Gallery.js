@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 
 const Gallery = () => {
@@ -22,6 +22,68 @@ const Gallery = () => {
     // 'https://www.instagram.com/p/CQM-Ka0jDTd/',
     // 'https://www.instagram.com/p/CMUVoqzjb0L/'
   ]
+
+  const next = picture => picture.classList.toggle('selected')
+  const pictureClass = [
+    'selected',
+    'prev',
+    'prevLeftSecond',
+    'next',
+    'nextRightSecond',
+    'hideLeft',
+    'hideRight'
+  ]
+
+  const [albumClass, setAlbumClass] = useState([])
+
+  const actualizarSelected = clase => {
+    let oldArray = ''
+    let indexSel = ''
+    let indexPrev = ''
+    let selected = ''
+    let previo = ''
+    let arrayPrev = ''
+    let newArray = ''
+    switch (clase) {
+      case 'prev':
+        oldArray = albumClass
+        indexSel = oldArray.indexOf('selected')
+        indexPrev = oldArray.indexOf('prev')
+        selected = oldArray.splice(indexSel, 1)
+        previo = oldArray.splice(indexSel, 1)
+        arrayPrev = oldArray.splice(indexSel, 0, 'next')
+        newArray = oldArray.splice(indexPrev, 0, 'selected')
+        console.log(oldArray)
+        return oldArray
+        break
+      case 'next':
+        oldArray = albumClass
+        indexSel = oldArray.indexOf('selected')
+        indexPrev = oldArray.indexOf('next')
+        selected = oldArray.splice(indexSel, 1)
+        previo = oldArray.splice(indexSel, 1)
+        arrayPrev = oldArray.splice(indexSel, 0, 'prev')
+        newArray = oldArray.splice(indexPrev, 0, 'selected')
+        console.log(oldArray)
+        return oldArray
+        break
+
+      default:
+        break
+    }
+  }
+
+  useEffect(() => {
+    setAlbumClass(
+      album.map((pic, i) =>
+        pictureClass.length > i
+          ? pictureClass[i]
+          : i % 2 === 0
+          ? 'hideRight'
+          : 'hideLeft'
+      )
+    )
+  }, [])
 
   return (
     <>
@@ -54,6 +116,25 @@ const Gallery = () => {
             <footer className='flex w-full h-16 justify-center items-center text-3xl font-semibold'>
               <h2 className='especial-font'>Foto {i + 1}</h2>
             </footer>
+          </div>
+        ))}
+      </div>
+      <div id='carousel' className='mt-20 container mx-auto'>
+        {album.map((picture, i) => (
+          <div
+            key={i}
+            className={albumClass[i]}
+            onClick={e =>
+              console.log(actualizarSelected(e.currentTarget.classList.value))
+            }
+          >
+            <Image
+              src={picture}
+              width={500}
+              height={500}
+              layout='responsive'
+              className='rounded-md -z-10'
+            />
           </div>
         ))}
       </div>
