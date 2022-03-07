@@ -60,7 +60,9 @@ const Gallery = () => {
       <div id='carousel' className='mt-20 container mx-auto'>
         <div className='hideLeft'>
           <Image
-            src={'/img/foto 1.jpg'}
+            src={
+              'https://res.cloudinary.com/dzlmwg5tk/image/upload/v1646654005/tattoo-artist/foto_7_xtazzz.jpg'
+            }
             width={500}
             height={500}
             layout='responsive'
@@ -70,7 +72,9 @@ const Gallery = () => {
 
         <div className='prevLeftSecond'>
           <Image
-            src={'/img/foto 2.jpg'}
+            src={
+              'https://res.cloudinary.com/dzlmwg5tk/image/upload/v1646654005/tattoo-artist/bg-2_plvton.jpg'
+            }
             width={500}
             height={500}
             layout='responsive'
@@ -80,7 +84,9 @@ const Gallery = () => {
 
         <div className='prev'>
           <Image
-            src={'/img/foto 3.jpg'}
+            src={
+              'https://res.cloudinary.com/dzlmwg5tk/image/upload/v1646654004/tattoo-artist/foto_3_bol73t.jpg'
+            }
             width={500}
             height={500}
             layout='responsive'
@@ -90,7 +96,9 @@ const Gallery = () => {
 
         <div className='selected'>
           <Image
-            src={'/img/foto 4.jpg'}
+            src={
+              'https://res.cloudinary.com/dzlmwg5tk/image/upload/v1646654004/tattoo-artist/foto_1_nmz4zr.jpg'
+            }
             width={500}
             height={500}
             layout='responsive'
@@ -100,7 +108,9 @@ const Gallery = () => {
 
         <div className='next'>
           <Image
-            src={'/img/foto 5.jpg'}
+            src={
+              'https://res.cloudinary.com/dzlmwg5tk/image/upload/v1646654004/tattoo-artist/foto_5_qktnk3.jpg'
+            }
             width={500}
             height={500}
             layout='responsive'
@@ -110,7 +120,9 @@ const Gallery = () => {
 
         <div className='nextRightSecond'>
           <Image
-            src={'/img/foto 6.jpg'}
+            src={
+              'https://res.cloudinary.com/dzlmwg5tk/image/upload/v1646654004/tattoo-artist/foto_5_qktnk3.jpg'
+            }
             width={500}
             height={500}
             layout='responsive'
@@ -120,7 +132,9 @@ const Gallery = () => {
 
         <div className='hideRight'>
           <Image
-            src={'/img/foto 7.jpg'}
+            src={
+              'https://res.cloudinary.com/dzlmwg5tk/image/upload/v1646654004/tattoo-artist/foto_4_nxaeq8.jpg'
+            }
             width={500}
             height={500}
             layout='responsive'
