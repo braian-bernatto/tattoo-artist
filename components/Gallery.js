@@ -18,7 +18,7 @@ const Gallery = () => {
 
   return (
     <>
-      <div className='flex justify-center items-center gap-5 flex-wrap pt-20 mx-10 relative'>
+      <div className='flex justify-center items-center gap-5 flex-wrap py-20 relative border shadow-xl mt-5 rounded-lg container mx-auto overflow-clip sm:overflow-visible'>
         <div className='ribbon-wrapper-2 text-white text-xl'>
           <div className='ribbon-2'>Galería</div>
         </div>
@@ -34,7 +34,7 @@ const Gallery = () => {
         {album.map((picture, i) => (
           <div
             key={i}
-            className='rounded-xl shadow-xl p-2 border h-96 w-80 overflow-hidden hover:scale-110 transition-transform relative'
+            className='rounded-xl shadow-xl border h-96 w-80 overflow-hidden hover:scale-110 transition-transform relative bg-white p-2'
           >
             <Image
               src={picture}
@@ -50,7 +50,7 @@ const Gallery = () => {
           </div>
         ))}
       </div>
-      <div id='carousel' className='mt-20'>
+      <div id='carousel' className='mt-20 container mx-auto'>
         <div className='hideLeft'>
           <Image
             src={'/img/foto 1.jpg'}

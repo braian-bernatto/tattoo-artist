@@ -21,7 +21,7 @@ export default function Home() {
       </main>
 
       <footer className='flex flex-wrap justify-center items-center my-10'>
-        <span className='text-md text-gray-500 font-bold'>
+        <span className='text-md text-gray-500 font-bold text-shadow-sm'>
           &copy; {new Date().getFullYear()} - Peter Pintos Tattoo Artist
         </span>
       </footer>
