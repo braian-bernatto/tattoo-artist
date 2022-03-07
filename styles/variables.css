@@ -1,0 +1,10 @@
+:root {
+  --red-primary: #6a0b0e;
+  --red-secondary: #bc1621;
+  --bronze-primary: #ae9469;
+  --bronze-secondary: #dabb8a;
+
+  --font-size-sm: 0.5rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 2rem;
+}

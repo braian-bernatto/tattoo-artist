@@ -1,0 +1,240 @@
+.hero {
+  min-width: 100%;
+  min-height: 100vh;
+  background-image: url('/img/bg-2.jpg');
+  background-size: cover;
+}
+
+.header {
+  background-color: rgba(255, 255, 255, 0.164);
+}
+
+.hero-title {
+  font-family: 'Covered By Your Grace', cursive;
+}
+
+.hero-title h1,
+.hero-title li {
+  color: white;
+  text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9,
+    0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2),
+    0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2),
+    0 20px 20px rgba(0, 0, 0, 0.15);
+}
+
+.hero-title-main {
+  font-size: 12.5rem;
+}
+
+.word-carousel {
+  overflow: hidden;
+  position: relative;
+  height: 150px;
+  padding-top: -150px;
+}
+.word-carousel li {
+  padding: 0 90px;
+  height: 100px;
+  margin-bottom: 100px;
+  display: block;
+}
+
+.flip2 {
+  animation: flip2 6s cubic-bezier(0.23, 1, 0.32, 1.2) infinite;
+}
+
+@keyframes flip2 {
+  0% {
+    margin-top: -400px;
+  }
+  5% {
+    margin-top: -200px;
+  }
+  50% {
+    margin-top: -200px;
+  }
+  55% {
+    margin-top: 0px;
+  }
+  99.99% {
+    margin-top: 0px;
+  }
+  100% {
+    margin-top: -600px;
+  }
+}
+
+.hover-underline-animation-span:after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: -1px;
+  width: 0;
+  height: 4px;
+  background-color: white;
+  background: radial-gradient(
+    currentColor,
+    currentColor 50%,
+    transparent 50%,
+    transparent 100%
+  );
+  background-size: 4px 4px;
+  -webkit-transition: background-color 0.3s cubic-bezier(0.43, 0.88, 0.43, 0.88),
+    width 0.25s cubic-bezier(0.43, 0.88, 0.43, 0.88);
+  -moz-transition: background-color 0.3s cubic-bezier(0.43, 0.88, 0.43, 0.88),
+    width 0.25s cubic-bezier(0.43, 0.88, 0.43, 0.88);
+  transition: background-color 0.3s cubic-bezier(0.43, 0.88, 0.43, 0.88),
+    width 0.25s cubic-bezier(0.43, 0.88, 0.43, 0.88);
+}
+
+.hover-underline-animation:hover .hover-underline-animation-span:after {
+  width: calc(100% + 2px);
+}
+
+.precinta {
+  position: absolute;
+  top: 60px;
+  right: -20px;
+  font-family: 'Covered By Your Grace', cursive;
+  background-color: var(--red-secondary);
+  transform: rotate(50deg);
+  padding: 2px 40px;
+  clip-path: polygon(0 0, 100% 0, 85% 50%, 100% 100%, 0 100%, 15% 50%);
+  overflow: hidden;
+}
+
+.ribbon-wrapper-2 {
+  width: 108px;
+  height: 108px;
+  overflow: hidden;
+  position: absolute;
+  top: -6px;
+  right: -6px;
+}
+
+.ribbon-2 {
+  font: bold 15px Sans-Serif;
+  line-height: 18px;
+  color: #333;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  position: relative;
+  padding: 7px 0;
+  left: -4px;
+  top: 26px;
+  width: 150px;
+  background-color: var(--red-secondary);
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.5px;
+  box-shadow: -3px 5px 6px -5px rgba(0, 0, 0, 0.5);
+}
+
+.ribbon-2:before,
+.ribbon-2:after {
+  content: '';
+  border-top: 4px solid var(--red-secondary);
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  position: absolute;
+  bottom: -4px;
+}
+
+.ribbon-2:before {
+  content: '';
+  position: absolute;
+  left: 0px;
+  top: 100%;
+  z-index: -1;
+  border-left: 4px solid var(--red-secondary);
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-top: 4px solid var(--red-secondary);
+}
+
+.ribbon-2:after {
+  content: '';
+  position: absolute;
+  right: 7px;
+  top: 100%;
+  z-index: -1;
+  border-left: 4px solid transparent;
+  border-right: 4px solid var(--red-secondary);
+  border-bottom: 4px solid transparent;
+  border-top: 4px solid var(--red-secondary);
+}
+
+#carousel {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+}
+#carousel div {
+  position: absolute;
+  transition: transform 1s, left 1s, opacity 1s, z-index 0s;
+  opacity: 1;
+}
+#carousel div {
+  width: 400px;
+  transition: width 1s;
+}
+#carousel div.hideLeft {
+  left: 0%;
+  opacity: 0;
+  transform: translateY(50%) translateX(-50%);
+}
+#carousel div.hideLeft {
+  width: 200px;
+}
+#carousel div.hideRight {
+  left: 100%;
+  opacity: 0;
+  transform: translateY(50%) translateX(-50%);
+}
+#carousel div.hideRight {
+  width: 200px;
+}
+#carousel div.prev {
+  z-index: 5;
+  left: 30%;
+  transform: translateY(50px) translateX(-50%);
+}
+#carousel div.prev {
+  width: 300px;
+}
+#carousel div.prevLeftSecond {
+  z-index: 4;
+  left: 15%;
+  transform: translateY(50%) translateX(-50%);
+  opacity: 0.7;
+}
+#carousel div.prevLeftSecond {
+  width: 200px;
+}
+#carousel div.selected {
+  z-index: 10;
+  left: 50%;
+  transform: translateY(0px) translateX(-50%);
+}
+#carousel div.next {
+  z-index: 5;
+  left: 70%;
+  transform: translateY(50px) translateX(-50%);
+}
+#carousel div.next {
+  width: 300px;
+}
+#carousel div.nextRightSecond {
+  z-index: 4;
+  left: 85%;
+  transform: translateY(50%) translateX(-50%);
+  opacity: 0.7;
+}
+#carousel div.nextRightSecond {
+  width: 200px;
+}
