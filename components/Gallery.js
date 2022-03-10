@@ -23,7 +23,6 @@ const Gallery = () => {
     // 'https://www.instagram.com/p/CMUVoqzjb0L/'
   ]
 
-  const next = picture => picture.classList.toggle('selected')
   const pictureClass = [
     'selected',
     'prev',
@@ -142,7 +141,11 @@ const Gallery = () => {
           </div>
         ))}
       </div>
-      <div id='carousel' className='mt-20 container mx-auto'>
+
+      <div
+        id='carousel'
+        className='mt-20 container mx-auto flex items-center justify-center'
+      >
         {album.map((picture, i) => (
           <div
             key={i}
@@ -151,102 +154,50 @@ const Gallery = () => {
               setAlbumClass(actualizarSelected(e.currentTarget.classList.value))
             }
           >
-            {/* <Image
-              src={picture}
-              width={500}
-              height={500}
-              layout='responsive'
-              className='rounded-md -z-10 img'
-            /> */}
-            <img src={picture} alt='' className='rounded-md -z-10 img' />
+            <article className='img'>
+              <Image
+                src={picture}
+                width={500}
+                height={500}
+                layout='responsive'
+                className=''
+              />
+            </article>
           </div>
         ))}
       </div>
-      {/* <div id='carousel' className='mt-20 container mx-auto'>
-        <div className='hideLeft'>
-          <Image
-            src={
-              'https://res.cloudinary.com/dzlmwg5tk/image/upload/v1646654005/tattoo-artist/foto_7_xtazzz.jpg'
-            }
-            width={500}
-            height={500}
-            layout='responsive'
-            className='z-30 rounded-md'
-          />
-        </div>
 
-        <div className='prevLeftSecond'>
-          <Image
-            src={
-              'https://res.cloudinary.com/dzlmwg5tk/image/upload/v1646654005/tattoo-artist/bg-2_plvton.jpg'
+      <div
+        id='carousel'
+        className='mt-20 container mx-auto flex items-center justify-center'
+      >
+        {album.map((picture, i) => (
+          <div
+            key={i}
+            className={`${albumClass[i]} rounded-xl shadow-xl border pb-16 overflow-hidden bg-white p-2`}
+            onClick={e =>
+              setAlbumClass(
+                actualizarSelected(
+                  e.currentTarget.classList.value.split(' ')[0]
+                )
+              )
             }
-            width={500}
-            height={500}
-            layout='responsive'
-            className='z-30 rounded-md'
-          />
-        </div>
-
-        <div className='prev'>
-          <Image
-            src={
-              'https://res.cloudinary.com/dzlmwg5tk/image/upload/v1646654004/tattoo-artist/foto_3_bol73t.jpg'
-            }
-            width={500}
-            height={500}
-            layout='responsive'
-            className='z-30 rounded-md'
-          />
-        </div>
-
-        <div className='selected'>
-          <Image
-            src={
-              'https://res.cloudinary.com/dzlmwg5tk/image/upload/v1646654004/tattoo-artist/foto_1_nmz4zr.jpg'
-            }
-            width={500}
-            height={500}
-            layout='responsive'
-            className='z-30 rounded-md'
-          />
-        </div>
-
-        <div className='next'>
-          <Image
-            src={
-              'https://res.cloudinary.com/dzlmwg5tk/image/upload/v1646654004/tattoo-artist/foto_5_qktnk3.jpg'
-            }
-            width={500}
-            height={500}
-            layout='responsive'
-            className='z-30 rounded-md'
-          />
-        </div>
-
-        <div className='nextRightSecond'>
-          <Image
-            src={
-              'https://res.cloudinary.com/dzlmwg5tk/image/upload/v1646654004/tattoo-artist/foto_5_qktnk3.jpg'
-            }
-            width={500}
-            height={500}
-            layout='responsive'
-            className='z-30 rounded-md'
-          />
-        </div>
-
-        <div className='hideRight'>
-          <Image
-            src={
-              'https://res.cloudinary.com/dzlmwg5tk/image/upload/v1646654004/tattoo-artist/foto_4_nxaeq8.jpg'
-            }
-            width={500}
-            height={500}
-            layout='responsive'
-            className='z-30 rounded-md'
-          />
-        </div>
-      </div> */}
+          >
+            <article className='img'>
+              <Image
+                src={picture}
+                width={500}
+                height={500}
+                layout='responsive'
+                className='rounded-t-md'
+              />
+              <footer className='flex w-full h-16 justify-center items-center text-3xl font-semibold'>
+                <h2 className='especial-font'>Foto {i + 1}</h2>
+              </footer>
+            </article>
+          </div>
+        ))}
+      </div>
     </>
   )
 }
