@@ -34,6 +34,8 @@ const Gallery = () => {
   ]
 
   const [albumClass, setAlbumClass] = useState([])
+  const [openModal, setOpenModal] = useState(false)
+  const [modalImage, setModalImage] = useState('/img/')
 
   const actualizarSelected = clase => {
     let oldArray = []
@@ -75,17 +77,11 @@ const Gallery = () => {
       case 'nextRightSecond':
         oldArray = [...albumClass]
         oldArray[oldArray.indexOf('prevLeftSecond')] = 'hideLeft'
-        oldArray[oldArray.indexOf('prev')] = 'prevLeftSecond'
-        oldArray[oldArray.indexOf('selected')] = 'prev'
-        oldArray[oldArray.indexOf('next')] = 'selected'
-        oldArray[oldArray.indexOf('nextRightSecond')] = 'next'
-        oldArray[oldArray.indexOf('hideRight')] = 'nextRightSecond'
-
-        oldArray[oldArray.indexOf('prevLeftSecond')] = 'hideLeft'
-        oldArray[oldArray.indexOf('prev')] = 'prevLeftSecond'
-        oldArray[oldArray.indexOf('selected')] = 'prev'
-        oldArray[oldArray.indexOf('next')] = 'selected'
-        oldArray[oldArray.indexOf('nextRightSecond')] = 'next'
+        oldArray[oldArray.indexOf('prev')] = 'hideLeft'
+        oldArray[oldArray.indexOf('selected')] = 'prevLeftSecond'
+        oldArray[oldArray.indexOf('next')] = 'prev'
+        oldArray[oldArray.indexOf('nextRightSecond')] = 'selected'
+        oldArray[oldArray.indexOf('hideRight')] = 'next'
         oldArray[oldArray.indexOf('hideRight')] = 'nextRightSecond'
 
         return oldArray
@@ -109,7 +105,7 @@ const Gallery = () => {
 
   return (
     <>
-      <div className='flex justify-center items-center gap-5 flex-wrap py-20 relative border shadow-xl mt-5 rounded-lg container mx-auto overflow-clip sm:overflow-visible'>
+      <div className='flex justify-center items-center gap-5 flex-wrap py-20 relative border shadow-xl mt-5 rounded-lg container mx-auto overflow-hidden sm:overflow-visible'>
         <div className='ribbon-wrapper-2 text-white text-xl'>
           <div className='ribbon-2'>Galería</div>
         </div>
@@ -144,8 +140,11 @@ const Gallery = () => {
 
       <div
         id='carousel'
-        className='mt-20 container mx-auto flex items-center justify-center'
+        className='mt-20 container mx-auto flex items-center justify-center bg-white shadow-xl rounded-xl border overflow-hidden'
       >
+        <div className='ribbon-wrapper-2 text-white text-xl'>
+          <div className='ribbon-2'>Galería V2</div>
+        </div>
         {album.map((picture, i) => (
           <div
             key={i}
@@ -167,10 +166,35 @@ const Gallery = () => {
         ))}
       </div>
 
+      {/* <!-- The Modal --> */}
+      <div
+        id='myModal'
+        className={`modal ${
+          openModal ? '' : 'hidden'
+        } flex items-center justify-center py-5`}
+      >
+        {/* <!-- The Close Button --> */}
+        <span className='close' onClick={() => setOpenModal(!openModal)}>
+          &times;
+        </span>
+        {/* <!-- Modal Content (The Image) --> */}
+        <span className='modal-content'>
+          <Image
+            src={modalImage}
+            width={1000}
+            height={1000}
+            className='rounded-md'
+          />
+        </span>
+      </div>
+
       <div
         id='carousel'
-        className='mt-20 container mx-auto flex items-center justify-center'
+        className='mt-20 container mx-auto flex items-center justify-center bg-white shadow-xl rounded-xl border overflow-hidden'
       >
+        <div className='ribbon-wrapper-2 text-white text-xl '>
+          <div className='ribbon-2'>Galería V3</div>
+        </div>
         {album.map((picture, i) => (
           <div
             key={i}
@@ -183,7 +207,25 @@ const Gallery = () => {
               )
             }
           >
-            <article className='img'>
+            <article className='img relative'>
+              {albumClass[i] === 'selected' ? (
+                <button
+                  className='open text-xl w-12 bg-white rounded-md m-2 transition opacity-70'
+                  onClick={() => {
+                    setModalImage(picture)
+                    setOpenModal(!openModal)
+                  }}
+                >
+                  <svg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'>
+                    <g fill='none' fill-rule='evenodd'>
+                      <path d='M0 0h16v16H0z' />
+                      <g stroke='#67717A' strokeLinecap='round'>
+                        <path d='M14.5 14.5l-4-4M11.5 6.5a5 5 0 1 1-10.001-.001A5 5 0 0 1 11.5 6.5z' />
+                      </g>
+                    </g>
+                  </svg>
+                </button>
+              ) : null}
               <Image
                 src={picture}
                 width={500}
