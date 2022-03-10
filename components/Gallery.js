@@ -37,39 +37,62 @@ const Gallery = () => {
   const [albumClass, setAlbumClass] = useState([])
 
   const actualizarSelected = clase => {
-    let oldArray = ''
-    let indexSel = ''
-    let indexPrev = ''
-    let selected = ''
-    let previo = ''
-    let arrayPrev = ''
-    let newArray = ''
+    let oldArray = []
     switch (clase) {
       case 'prev':
-        oldArray = albumClass
-        indexSel = oldArray.indexOf('selected')
-        indexPrev = oldArray.indexOf('prev')
-        selected = oldArray.splice(indexSel, 1)
-        previo = oldArray.splice(indexSel, 1)
-        arrayPrev = oldArray.splice(indexSel, 0, 'next')
-        newArray = oldArray.splice(indexPrev, 0, 'selected')
-        console.log(oldArray)
+        oldArray = [...albumClass]
+        oldArray[oldArray.indexOf('nextRightSecond')] = 'hideRight'
+        oldArray[oldArray.indexOf('next')] = 'nextRightSecond'
+        oldArray[oldArray.indexOf('selected')] = 'next'
+        oldArray[oldArray.indexOf('prev')] = 'selected'
+        oldArray[oldArray.indexOf('prevLeftSecond')] = 'prev'
+        oldArray[oldArray.indexOf('hideLeft')] = 'prevLeftSecond'
+
         return oldArray
-        break
+
       case 'next':
-        oldArray = albumClass
-        indexSel = oldArray.indexOf('selected')
-        indexPrev = oldArray.indexOf('next')
-        selected = oldArray.splice(indexSel, 1)
-        previo = oldArray.splice(indexSel, 1)
-        arrayPrev = oldArray.splice(indexSel, 0, 'prev')
-        newArray = oldArray.splice(indexPrev, 0, 'selected')
-        console.log(oldArray)
+        oldArray = [...albumClass]
+        oldArray[oldArray.indexOf('prevLeftSecond')] = 'hideLeft'
+        oldArray[oldArray.indexOf('prev')] = 'prevLeftSecond'
+        oldArray[oldArray.indexOf('selected')] = 'prev'
+        oldArray[oldArray.indexOf('next')] = 'selected'
+        oldArray[oldArray.indexOf('nextRightSecond')] = 'next'
+        oldArray[oldArray.indexOf('hideRight')] = 'nextRightSecond'
+
         return oldArray
-        break
+
+      case 'prevLeftSecond':
+        oldArray = [...albumClass]
+        oldArray[oldArray.indexOf('nextRightSecond')] = 'hideRight'
+        oldArray[oldArray.indexOf('next')] = 'hideRight'
+        oldArray[oldArray.indexOf('selected')] = 'nextRightSecond'
+        oldArray[oldArray.indexOf('prev')] = 'next'
+        oldArray[oldArray.indexOf('prevLeftSecond')] = 'selected'
+        oldArray[oldArray.indexOf('hideLeft')] = 'prev'
+        oldArray[oldArray.indexOf('hideLeft')] = 'prevLeftSecond'
+
+        return oldArray
+
+      case 'nextRightSecond':
+        oldArray = [...albumClass]
+        oldArray[oldArray.indexOf('prevLeftSecond')] = 'hideLeft'
+        oldArray[oldArray.indexOf('prev')] = 'prevLeftSecond'
+        oldArray[oldArray.indexOf('selected')] = 'prev'
+        oldArray[oldArray.indexOf('next')] = 'selected'
+        oldArray[oldArray.indexOf('nextRightSecond')] = 'next'
+        oldArray[oldArray.indexOf('hideRight')] = 'nextRightSecond'
+
+        oldArray[oldArray.indexOf('prevLeftSecond')] = 'hideLeft'
+        oldArray[oldArray.indexOf('prev')] = 'prevLeftSecond'
+        oldArray[oldArray.indexOf('selected')] = 'prev'
+        oldArray[oldArray.indexOf('next')] = 'selected'
+        oldArray[oldArray.indexOf('nextRightSecond')] = 'next'
+        oldArray[oldArray.indexOf('hideRight')] = 'nextRightSecond'
+
+        return oldArray
 
       default:
-        break
+        return albumClass
     }
   }
 
@@ -123,22 +146,23 @@ const Gallery = () => {
         {album.map((picture, i) => (
           <div
             key={i}
-            className={albumClass[i]}
+            className={`${albumClass[i]}`}
             onClick={e =>
-              console.log(actualizarSelected(e.currentTarget.classList.value))
+              setAlbumClass(actualizarSelected(e.currentTarget.classList.value))
             }
           >
-            <Image
+            {/* <Image
               src={picture}
               width={500}
               height={500}
               layout='responsive'
-              className='rounded-md -z-10'
-            />
+              className='rounded-md -z-10 img'
+            /> */}
+            <img src={picture} alt='' className='rounded-md -z-10 img' />
           </div>
         ))}
       </div>
-      <div id='carousel' className='mt-20 container mx-auto'>
+      {/* <div id='carousel' className='mt-20 container mx-auto'>
         <div className='hideLeft'>
           <Image
             src={
@@ -222,7 +246,7 @@ const Gallery = () => {
             className='z-30 rounded-md'
           />
         </div>
-      </div>
+      </div> */}
     </>
   )
 }
